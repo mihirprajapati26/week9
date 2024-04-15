@@ -1,0 +1,38 @@
+
+<!-- addmessage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Add Message" }) %>
+
+  <body>
+    <%- include('partials/navbar') %>
+
+    <div class="content">
+      <div class="create">
+        <h2>Add a New Message</h2>
+        <form action="/addMessage" method="POST">
+          <label>Sender:</label
+          ><input type="text" value="" id="sender" name="sender" required />
+
+          <label for="recipient">Recipient:</label>
+          <input type="text" id="recipient" name="recipient" required /><br />
+
+          <label for="content">Content:</label>
+          <textarea
+            value=""
+            id="content"
+            name="content"
+            rows="4"
+            required
+          ></textarea
+          ><br />
+
+          <button type="submit">Add Message</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

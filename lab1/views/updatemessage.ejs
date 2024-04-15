@@ -1,0 +1,30 @@
+
+<!-- updatemessage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Message</h2>
+      <form action="/single-message/<%= message._id %>?_method=PUT" method="POST">
+        <label>Sender:</label>
+        <input type="text" value="<%= message.sender %>" id="sender" name="sender" required />
+
+        <label for="recipient">Recipient:</label>
+        <input type="text" id="recipient" name="recipient" required value="<%= message.recipient %>" />
+
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows="4" required><%= message.content %></textarea>
+
+        <button type="submit">Update Message</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
